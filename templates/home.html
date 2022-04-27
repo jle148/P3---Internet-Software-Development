@@ -1,0 +1,49 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Movies Database{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="px-4 pt-5 my-5 text-center movieDatabase flex-fill">
+        <h1 id="homepageHeader" class="display-4 fw-bold">Welcome back, {{ username }}</h1>
+        <nav class="navbar navbar-expand fixed-top navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav-item">
+{#                        <li class="nav-item" >#}
+{#                            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>#}
+{#                        </li>#}
+                        <li class="nav-item" >
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <form action="{{ url_for('home') }}" method="POST">
+            <label for="keyword_search">Search:</label>
+            <input name="keyword_search" id="keyword_search" type="text">
+            <input type="submit">
+        </form>
+        <div>
+            <section>
+                <section id="movieList" name="movieList">
+                    {% if movie_list|length > 100 %}
+                        {% for i in range(100) %}
+                            <p><a href="{{ url_for('movies_watched', movie_name=movie_list[i]) }}">{{ movie_list[i] }}</a></p>
+                        {% endfor %}
+                    {% else %}
+                        {% for movie in movie_list %}
+                            <p><a href="{{ url_for('movies_watched', movie_name=movie) }}">{{ movie }}</a></p>
+                        {% endfor %}
+                    {% endif %}
+                </section>
+            </section>
+        </div>
+    </div>
+{% endblock %}

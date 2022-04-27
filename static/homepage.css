@@ -1,0 +1,56 @@
+.movieDatabase {
+    padding: 25px 25px 50px 25px;
+    color: white !important;
+}
+html, body {
+    background-image: url("../static/filmBackground2.jpg");
+    background-repeat: repeat;
+    background-size: 100%;
+}
+label, option, select, input {
+    color: black;
+    background-color: white;
+}
+table {
+    background-color: #1a1e21;
+}
+td, th {
+    padding: 5px;
+}
+ul {
+    list-style-type: none;
+    font-size: xx-large;
+}
+li {
+    display: inline;
+}
+p {
+    font-size: x-large;
+    color: white;
+}
+a {
+    color: white;
+}
+h1 {
+    font-size: xxx-large;
+}
+strong {
+    position: relative;
+    z-index: 1;
+}
+strong::before {
+    background-color: black;
+    content: "";
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:active {
+    color: yellow;
+}

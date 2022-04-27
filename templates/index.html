@@ -1,0 +1,29 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Movies Database{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="px-4 pt-5 my-5 text-center movieDatabase flex-fill">
+        <h1 class="display-4 fw-bold">Welcome to Movie Database</h1>
+        <nav class="navbar navbar-expand fixed-top navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav-item">
+                        <li class="nav-item" >
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+{% endblock %}
