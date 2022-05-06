@@ -218,6 +218,8 @@ def movies_watched(movie_name):
 @app.route('/search_history')
 def display_search_history():
 
+    return render_template('history.html')
+
 
 
 
