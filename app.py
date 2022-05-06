@@ -215,6 +215,10 @@ def movies_watched(movie_name):
     conn.commit()
     return render_template('home.html', username=session['username'], movie_list=movie_list)
 
+@app.route('/search_history')
+def display_search_history():
+
+
 
 
 
