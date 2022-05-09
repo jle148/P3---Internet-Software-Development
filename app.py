@@ -233,7 +233,7 @@ def display_search_history():
         if movie_array[0] not in search_history:
             search_history.append(movie_array[0])
 
-    return render_template('history.html')
+    return render_template('history.html', search_history=search_history)
 
 
 
