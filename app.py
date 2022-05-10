@@ -235,10 +235,5 @@ def display_search_history():
 
     return render_template('history.html', search_history=search_history)
 
-
-
-
-
-
 if __name__ == '__main__':
     app.run()

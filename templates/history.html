@@ -27,14 +27,14 @@
         </nav>
         <div>
             <section>
-                <section id="movieList" name="movieList">
-                    {% if movie_list|length > 100 %}
+                <section id="search_history" name="search_history">
+                    {% if search_history|length > 100 %}
                         {% for i in range(100) %}
-                            <p><a href="{{ url_for('movies_watched', movie_name=movie_list[i]) }}">{{ movie_list[i] }}</a></p>
+                            <p><a href="{{ url_for('search_history', movie_name=search_history[i]) }}">{{ search_history[i] }}</a></p>
                         {% endfor %}
                     {% else %}
-                        {% for movie in movie_list %}
-                            <p><a href="{{ url_for('movies_watched', movie_name=movie) }}">{{ movie }}</a></p>
+                        {% for movie in search_history %}
+                            <p><a href="{{ url_for('search_history', movie_name=movie) }}">{{ movie }}</a></p>
                         {% endfor %}
                     {% endif %}
                 </section>
