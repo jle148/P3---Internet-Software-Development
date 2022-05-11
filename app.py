@@ -228,10 +228,10 @@ def display_search_history():
         movie_string = str(movie_tuple)
         movie_string = movie_string.strip("()'")
         movie_array = movie_string.split(', ')
-        movie_array[0] = movie_array[0].strip("'")
+        movie_array[1] = movie_array[1].strip("'")
         # if the movie isn't already in the list then append to list
-        if movie_array[0] not in search_history:
-            search_history.append(movie_array[0])
+        if movie_array[1] not in search_history:
+            search_history.append(movie_array[1])
 
     return render_template('history.html', search_history=search_history)
 
