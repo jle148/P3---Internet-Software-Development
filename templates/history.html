@@ -15,9 +15,9 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="nav-item">
-{#                        <li class="nav-item" >#}
-{#                            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>#}
-{#                        </li>#}
+                        <li class="nav-item" >
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                        </li>
                         <li class="nav-item" >
                             <a class="nav-link active" aria-current="page" href="{{ url_for('logout') }}">Logout</a>
                         </li>
@@ -30,7 +30,7 @@
                 <section id="search_history" name="search_history">
                     {% if search_history|length > 100 %}
                         {% for i in range(100) %}
-                            <p><a href="{{ url_for('search_history', movie_name=search_history[i]) }}">{{ search_history[i] }}</a></p>
+                            <p>{{ search_history[i] }}</p>
                         {% endfor %}
                     {% else %}
                         {% for movie in search_history %}
