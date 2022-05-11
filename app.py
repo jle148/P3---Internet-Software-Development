@@ -219,6 +219,7 @@ def movies_watched(movie_name):
 def display_search_history():
 
     search_history = []
+    watch_history = []
     cursor = conn.cursor()
 
     cursor.execute('SELECT * FROM user_search_activity')
@@ -233,7 +234,19 @@ def display_search_history():
         if movie_array[1] not in search_history:
             search_history.append(movie_array[1])
 
-    return render_template('history.html', search_history=search_history)
+    cursor.execute('SELECT * FROM user_watch_activity')
+
+    movies_in_watch_history = cursor.fetchall()
+    for movie_tuple in movies_in_watch_history:
+        movie_string = str(movie_tuple)
+        movie_string = movie_string.strip("()'")
+        movie_array = movie_string.split(', ')
+        movie_array[1] = movie_array[1].strip("'")
+        # if the movie isn't already in the list then append to list
+        if movie_array[1] not in watch_history:
+            watch_history.append(movie_array[1])
+
+    return render_template('history.html', search_history=search_history, watch_history=watch_history)
 
 if __name__ == '__main__':
     app.run()
