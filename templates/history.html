@@ -28,11 +28,6 @@
         <div>
             <section>
                 <section id="search_history" name="search_history">
-                    {% if search_history|length > 100 %}
-                        {% for i in range(100) %}
-                            <p>{{ search_history[i] }}</p>
-                        {% endfor %}
-                    {% else %}
                         {% for movie in search_history %}
                             <p><a href="{{ url_for('search_history', movie_name=movie) }}">{{ movie }}</a></p>
                         {% endfor %}
